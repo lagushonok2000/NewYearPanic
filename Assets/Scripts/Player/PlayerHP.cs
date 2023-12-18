@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
-    [SerializeField] private float _sub;
     [SerializeField] private Image _hpBar;
     [SerializeField] private float _countHp;
     [SerializeField] private GameObject _defeatPanel;
     [SerializeField] private LevelsSO _config;
     private float _maxHp;
+    private float _sub;
 
     private void Start()
     {
@@ -18,6 +18,7 @@ public class PlayerHP : MonoBehaviour
             _countHp = _config.PlayerHP[SaveGame.Data.CurrentLevel];
         }
 
+        _sub = _config.EnemyDamage[SaveGame.Data.CurrentLevel];
         _maxHp = _countHp;
         _hpBar.fillAmount = _countHp / _maxHp;
     }

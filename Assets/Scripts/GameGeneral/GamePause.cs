@@ -20,7 +20,7 @@ public class GamePause : MonoBehaviour
     {
         SaveGame.Data.CurrentIndexScene = SceneManager.GetActiveScene().buildIndex;
         SaveGame.SaveData();
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
     }
 
     public void PauseButton()

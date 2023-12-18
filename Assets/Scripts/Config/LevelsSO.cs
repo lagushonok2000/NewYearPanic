@@ -8,4 +8,5 @@ public class LevelsSO : ScriptableObject
     public float[] PlayerSpeed;
     public float[] PlayerHP;
     public float[] PlayerDamage;
+    public float[] EnemyDamage;
 }

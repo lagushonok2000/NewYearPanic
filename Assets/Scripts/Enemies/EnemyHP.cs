@@ -24,6 +24,7 @@ public class EnemyHP : MonoBehaviour
 
     public void HpSubtruck(float sub)
     {
+        Debug.Log(sub + "     " + _countHp);
         if (_countHp <= sub)
         {
            GameObject.Destroy(gameObject);
@@ -33,12 +34,16 @@ public class EnemyHP : MonoBehaviour
         _hpBar.fillAmount = _countHp / _maxHp;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        
-        if (collision.gameObject.layer == 8)
+        Debug.Log("111");
+        if (other.gameObject.layer == 8)
         {
             HpSubtruck(_sub);
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 }

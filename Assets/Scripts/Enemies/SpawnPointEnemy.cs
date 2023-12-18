@@ -16,10 +16,8 @@ public class SpawnPointEnemy : MonoBehaviour
 
     private void Spawn()
     {
-        Debug.Log("גûמאכ");
         var random = Random.Range(0,_spawnPointsEnemy.Length);
         var enemy = Instantiate(_prefabEnemy);
-        Debug.Log(_spawnPointsEnemy.Length);
         enemy.transform.position = _spawnPointsEnemy[random].position;
     }
 

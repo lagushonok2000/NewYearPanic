@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62862f48565710f42bf3f8e0b59a4c00, type: 3}
   m_Name: LevelsSO
   m_EditorClassIdentifier: 
-  KristallsOnLevel: 0500000004000000040000000400000004000000
+  KristallsOnLevel: 05000000070000000a0000000c0000000f000000
   TimeOnLevel:
   - 20
   - 30
@@ -32,8 +32,14 @@ MonoBehaviour:
   - 190
   - 210
   PlayerDamage:
-  - 40
-  - 40
-  - 70
-  - 8
-  - 10
+  - 50
+  - 400
+  - 700
+  - 80
+  - 100
+  EnemyDamage:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
