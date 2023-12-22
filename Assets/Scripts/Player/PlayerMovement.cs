@@ -7,11 +7,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float  _playerSpeed;
     [SerializeField] private LevelsSO _config;
     [SerializeField] private Animator _animator;
-    private CharacterController _controller;
+    [SerializeField] private AudioSource _soundKristall;
+    [SerializeField] private AudioSource _soundAnimator;
     private Vector3 _move;
     private Vector3 _velocity;
     private const int _layerKristall = 6;
     private float g = -9.8f;
+    private CharacterController _controller;
 
     private void Start()
     {
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         {
             int ID = other.GetComponent<Kristall>().ID;
             _counterKristall.AddKristall(ID);
+            _soundKristall.Play();
             other.gameObject.SetActive(false);
         }
     }
@@ -43,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         if (_move == Vector3.zero)
         {
             _animator.SetBool("move", false);
+            _soundAnimator.Play();
         }
         else
         {

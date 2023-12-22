@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,10 @@ public class EnemyHP : MonoBehaviour
     [SerializeField] private Image _hpBar;
     [SerializeField] private float _countHp;
     [SerializeField] private LevelsSO _config;
+    [SerializeField] private AudioSource _destroySound;
+    [SerializeField] private Collider _collider;
+    [SerializeField] private GameObject _mesh;
+    [SerializeField] private GameObject _canvas;
     private float _maxHp;
 
     private void Start()
@@ -22,12 +27,24 @@ public class EnemyHP : MonoBehaviour
         }
     }
 
+    private IEnumerator timer()
+    {
+        _collider.enabled = false;
+        _canvas.SetActive(false);
+        _mesh.SetActive(false);
+        yield return new WaitForSeconds(0.3f);
+        GameObject.Destroy(gameObject);
+
+    }
+
     public void HpSubtruck(float sub)
     {
         Debug.Log(sub + "     " + _countHp);
         if (_countHp <= sub)
         {
-           GameObject.Destroy(gameObject);
+            
+            _destroySound.Play();
+            StartCoroutine(timer());
             return;
         }
         _countHp -= sub;
@@ -36,7 +53,6 @@ public class EnemyHP : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("111");
         if (other.gameObject.layer == 8)
         {
             HpSubtruck(_sub);

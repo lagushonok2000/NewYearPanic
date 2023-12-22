@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class DestroyKristalls : MonoBehaviour
 {
+    [SerializeField] private AudioSource _soundKristall;
+
     private void OnTriggerEnter(Collider other)
     {
-        gameObject.SetActive(false);
+        _soundKristall.Play();
+        //gameObject.SetActive(false);
     }
 }
