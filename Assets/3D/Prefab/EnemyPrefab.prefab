@@ -775,7 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sub: 35
   _hpBar: {fileID: 1670786662101088309}
-  _countHp: 10
+  _countHp: 100
   _config: {fileID: 11400000, guid: f717a0873d8ca2c418cadfeb2090e8d7, type: 2}
 --- !u!54 &1402304975242846952
 Rigidbody:
