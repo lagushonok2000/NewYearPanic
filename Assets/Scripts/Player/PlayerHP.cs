@@ -8,6 +8,7 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] private float _countHp;
     [SerializeField] private GameObject _defeatPanel;
     [SerializeField] private LevelsSO _config;
+    [SerializeField] private AudioSource _hpLoose;
     private float _maxHp;
     private float _sub;
 
@@ -34,6 +35,7 @@ public class PlayerHP : MonoBehaviour
         }
         _countHp -= sub;
         _hpBar.fillAmount = _countHp / _maxHp;
+        _hpLoose.Play();
     }
 
     private void OnCollisionStay (Collision collision)

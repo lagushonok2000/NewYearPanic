@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62862f48565710f42bf3f8e0b59a4c00, type: 3}
   m_Name: LevelsSO
   m_EditorClassIdentifier: 
-  KristallsOnLevel: 0a0000000f0000000a0000000c0000000f000000
+  KristallsOnLevel: 0f00000019000000230000002d00000037000000410000004b000000550000005f000000
   TimeOnLevel:
-  - 20
-  - 40
-  - 40
-  - 50
+  - 30
+  - 45
   - 60
+  - 70
+  - 75
   PlayerSpeed:
   - 10
   - 13

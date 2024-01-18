@@ -9,6 +9,9 @@ public class LevelTimer : MonoBehaviour
     [SerializeField] private GameObject _victory;
     [SerializeField] private GameObject _defeat;
     [SerializeField] private CounterKristall _countKristall;
+    [SerializeField] private AudioSource _victorySound;
+    [SerializeField] private AudioSource _defeatSound;
+    [SerializeField] private AudioSource _timeOver;
     private bool _stopTimer;
 
 
@@ -30,18 +33,20 @@ public class LevelTimer : MonoBehaviour
             currentTime -= _smoothness;
             yield return new WaitForSeconds (_smoothness);
         }
-
+        _timeOver.Play();
         _timerText.text = "Время вышло";
         Time.timeScale = 0;
         int count = _config.KristallsOnLevel[SaveGame.Data.CurrentLevel];
         if (_countKristall.CounterBlue >= count || _countKristall.CounterGreen >= count || _countKristall.CounterRed >= count)
         {
             _victory.SetActive(true);
- 
+            _victorySound.Play();
+
         }
         else
         {
             _defeat.SetActive(true);
+            _defeatSound.Play();
         }
     }
 }
